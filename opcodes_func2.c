@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void nop(stack_t **stack_pointer, unsigned int num)
+void aunop(stack_t **stack_pointer, unsigned int num)
 {
 	/* Unused parameters */
 	(void)stack_pointer;
