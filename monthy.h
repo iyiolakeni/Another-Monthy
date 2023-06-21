@@ -44,21 +44,25 @@ instruction_t *parse_line(char *line);
 void free_stack(stack_t *head);
 char *get_opcode(char *string);
 
-void push(stack_t **stack_pointer, unsigned int num);
-void pall(stack_t **stack_pointer, unsigned int num);
-void pint(stack_t **stack_pointer, unsigned int num);
-void pop(stack_t **stack_pointer, unsigned int num);
-void swap(stack_t **stack_pointer, unsigned int num);
+
+/*OPcodes Functions*/
+void aupush(stack_t **stack_pointer, unsigned int num);
+void aupall(stack_t **stack_pointer, unsigned int num);
+void aupint(stack_t **stack_pointer, unsigned int num);
+void aupop(stack_t **stack_pointer, unsigned int num);
+void auswap(stack_t **stack_pointer, unsigned int num);
 
 /* Functions.c*/
 void stack_add(stack_t **stack_pointer, unsigned int num);
 void stack_div(stack_t **stack_pointer, unsigned int num);
-int is_int(char *str);
+int int_checker(char *str);
+void stack_mul(stack_t **stack_pointer, unsigned int num);
+void stack_sub(stack_t **stack_pointer, unsigned int num);
 
 void nop(stack_t **stack_pointer, unsigned int num);
-void sub(stack_t **stack_pointer, unsigned int num);
 
-void multiply(stack_t **stack_pointer, unsigned int num);
+
+
 void moddy(stack_t **stack_pointer, unsigned int num);
 void pchar(stack_t **stack_pointer, unsigned int num);
 void pstr(stack_t **stack_pointer, unsigned int num);
