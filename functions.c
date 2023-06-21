@@ -21,7 +21,7 @@ void stack_add(stack_t **stack_pointer, unsigned int num)
 	add = (*stack_pointer)->next->n + (*stack_pointer)->n;
 
 	/* Remove the top element */
-	pop(stack_pointer, num);
+	aupop(stack_pointer, num);
 
 	/* Update the new top element with the sum */
 	(*stack_pointer)->n = add;
@@ -55,7 +55,7 @@ void stack_div(stack_t **stack_pointer, unsigned int num)
 	division = (*stack_pointer)->next->n / (*stack_pointer)->n;
 
 	/* Remove the top element */
-	pop(stack_pointer, num);
+	aupop(stack_pointer, num);
 
 	/* Update the new top element with the division result */
 	(*stack_pointer)->n = division;
@@ -111,7 +111,7 @@ void stack_mul(stack_t **stack_pointer, unsigned int num)
 	result = (*stack_pointer)->next->n * (*stack_pointer)->n;
 
 	/* Remove the top element */
-	pop(stack_pointer, num);
+	aupop(stack_pointer, num);
 
 	/* Update the new top element with the multiplication result */
 	(*stack_pointer)->n = result;
@@ -140,7 +140,7 @@ void stack_sub(stack_t **stack_pointer, unsigned int num)
 	difference = (*stack_pointer)->next->n - (*stack_pointer)->n;
 
 	/* Remove the top element */
-	pop(stack_pointer, num);
+	aupop(stack_pointer, num);
 
 	/* Update the new top element with the difference */
 	(*stack_pointer)->n = difference;
