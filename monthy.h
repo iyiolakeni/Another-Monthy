@@ -52,6 +52,10 @@ void aupint(stack_t **stack_pointer, unsigned int num);
 void aupop(stack_t **stack_pointer, unsigned int num);
 void auswap(stack_t **stack_pointer, unsigned int num);
 
+/* OPcodes Functions*/
+void nop(stack_t **stack_pointer, unsigned int num);
+void moddy(stack_t **stack_pointer, unsigned int num);
+
 /* Functions.c*/
 void stack_add(stack_t **stack_pointer, unsigned int num);
 void stack_div(stack_t **stack_pointer, unsigned int num);
@@ -59,11 +63,11 @@ int int_checker(char *str);
 void stack_mul(stack_t **stack_pointer, unsigned int num);
 void stack_sub(stack_t **stack_pointer, unsigned int num);
 
-void nop(stack_t **stack_pointer, unsigned int num);
 
 
 
-void moddy(stack_t **stack_pointer, unsigned int num);
+
+
 void pchar(stack_t **stack_pointer, unsigned int num);
 void pstr(stack_t **stack_pointer, unsigned int num);
 void rotl(stack_t **stack_pointer, unsigned int num);
