@@ -72,7 +72,7 @@ void austack(stack_t **stack_pointer, unsigned int num);
 void auqueue(stack_t **stack_pointer, unsigned int num);
 
 /*Parser*/
-instruction_t *parse_line(char *line);
+instruction_t *auparser(char *line);
 
 /* Stack Function */
 void free_stack(stack_t *head);
