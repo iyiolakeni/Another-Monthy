@@ -40,10 +40,6 @@ typedef struct instruction_s
 } instruction_t;
 
 extern int SQ;
-instruction_t *parse_line(char *line);
-void free_stack(stack_t *head);
-char *get_opcode(char *string);
-
 
 /*OPcodes Functions*/
 void aupush(stack_t **stack_pointer, unsigned int num);
@@ -53,8 +49,8 @@ void aupop(stack_t **stack_pointer, unsigned int num);
 void auswap(stack_t **stack_pointer, unsigned int num);
 
 /* OPcodes Functions*/
-void nop(stack_t **stack_pointer, unsigned int num);
-void moddy(stack_t **stack_pointer, unsigned int num);
+void aunop(stack_t **stack_pointer, unsigned int num);
+void aumod(stack_t **stack_pointer, unsigned int num);
 
 /* Functions.c*/
 void stack_add(stack_t **stack_pointer, unsigned int num);
@@ -63,15 +59,23 @@ int int_checker(char *str);
 void stack_mul(stack_t **stack_pointer, unsigned int num);
 void stack_sub(stack_t **stack_pointer, unsigned int num);
 
+/*Printer Function*/
+void aupchar(stack_t **stack_pointer, unsigned int num);
+void aupstr(stack_t **stack_pointer, unsigned int num);
 
+/*Rotate Function*/
+void aurotl(stack_t **stack_pointer, unsigned int num);
+void aurotr(stack_t **stack_pointer, unsigned int num);
 
+/* Stack functions*/
+void austack(stack_t **stack_pointer, unsigned int num);
+void auqueue(stack_t **stack_pointer, unsigned int num);
 
+/*Parser*/
+instruction_t *parse_line(char *line);
 
+/* Stack Function */
+void free_stack(stack_t *head);
+char *get_opcode(char *string);
 
-void pchar(stack_t **stack_pointer, unsigned int num);
-void pstr(stack_t **stack_pointer, unsigned int num);
-void rotl(stack_t **stack_pointer, unsigned int num);
-void rotr(stack_t **stack_pointer, unsigned int num);
-void stack(stack_t **stack_pointer, unsigned int num);
-void queue(stack_t **stack_pointer, unsigned int num);
 #endif
