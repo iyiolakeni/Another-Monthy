@@ -63,67 +63,85 @@ void stack_div(stack_t **stack_pointer, unsigned int num)
 
 
 /**
- * is_int - checks if a string is valid for atoi
- * @str: the string
+ * int_checker - Checks if a string is valid for atoi.
+ * @str: The string to check
  *
  * Return: 1 for true, 0 for false
  */
-int is_int(char *str)
+int int_checker(char *str)
 {
-	int i = 0;
+	int index = 0;
 
 	if (str == NULL)
 		return (0);
+
 	if (*str == '-')
-		i++;
-	for (; str[i]; i++)
+		index++;
+
+	while (str[index] != '\0')
 	{
-		if (!isdigit(str[i]))
+		if (!isdigit(str[index]))
 			return (0);
+		index++;
 	}
+
 	return (1);
 }
 
+
+
 /**
- * multiply - multiplies the top two elements of the stack.
- * @stack: the stack
- * @line_number: the current line number
+ * stack_mul - Multiplies the top two elements of the stack.
+ * @stack_pointer: Pointer to the stack
+ * @num: Current line number
  *
  * Return: void
  */
-void multiply(stack_t **stack, unsigned int line_number)
+void stack_mul(stack_t **stack_pointer, unsigned int num)
 {
-	int mul;
+	int result;
 
-	if ((*stack) == NULL || (*stack)->next == NULL)
+	if (*stack_pointer == NULL || (*stack_pointer)->next == NULL)
 	{
-		fprintf(stdout, "L%d: can't mul, stack too short\n", line_number);
+		fprintf(stdout, "L%d: can't mul, stack too short\n", num);
 		exit(EXIT_FAILURE);
 	}
 
-	mul = (*stack)->next->n * (*stack)->n;
-	pop(stack, line_number);
-	(*stack)->n = mul;
+	/* Perform multiplication of the top two elements */
+	result = (*stack_pointer)->next->n * (*stack_pointer)->n;
+
+	/* Remove the top element */
+	pop(stack_pointer, num);
+
+	/* Update the new top element with the multiplication result */
+	(*stack_pointer)->n = result;
 }
 
+
+
 /**
- * sub - subtracts the top two elements of the stack.
- * @stack: the stack
- * @line_number: the current line number
+ * stack_sub - Subtracts the top two elements of the stack.
+ * @stack_pointer: Pointer to the stack
+ * @num: Current line number
  *
  * Return: void
  */
-void sub(stack_t **stack, unsigned int line_number)
+void stack_sub(stack_t **stack_pointer, unsigned int num)
 {
-	int diff;
+	int difference;
 
-	if ((*stack) == NULL || (*stack)->next == NULL)
+	if (*stack_pointer == NULL || (*stack_pointer)->next == NULL)
 	{
-		fprintf(stdout, "L%d: can't sub, stack too short\n", line_number);
+		fprintf(stdout, "L%d: can't sub, stack too short\n", num);
 		exit(EXIT_FAILURE);
 	}
 
-	diff = (*stack)->next->n - (*stack)->n;
-	pop(stack, line_number);
-	(*stack)->n = diff;
+	/* Calculate the difference of the top two elements */
+	difference = (*stack_pointer)->next->n - (*stack_pointer)->n;
+
+	/* Remove the top element */
+	pop(stack_pointer, num);
+
+	/* Update the new top element with the difference */
+	(*stack_pointer)->n = difference;
 }
