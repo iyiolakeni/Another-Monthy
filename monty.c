@@ -37,9 +37,9 @@ int main(int argc, char **argv)
 	while (getline(&line, &glsize, file_in) != -1)
 	{
 		line_number++;
-		instruction = parse_line(line);
+		instruction = auparser(line);
 
-		/* Skip if line is empty or a comment */
+		/* Skip if the line is empty or a comment */
 		if (!(instruction->opcode) || instruction->opcode[0] == '#')
 		{
 			free(instruction);
